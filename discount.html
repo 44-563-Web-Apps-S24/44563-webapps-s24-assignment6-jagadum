@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+ <head>
+    <title>Discount Calculations</title>
+ </head>
+<body>
+
+<h2>Nuthan Jarugumalli Discount Calculations</h2>
+
+<form>
+    <label for="form1_age">What is your age </label>
+    <input type ="number" id="form1_age" name="form1_age" min=10 max=50 step=2 value=30> <br>
+
+    <label for="form1_nick">What is your nickname </label>
+    <input type ="text" id="form1_nick" name="form1_nick" autofocus> <br>
+
+    <input type="button" onclick="resolveForm()" value="Get values from form">
+</form>
+
+
+<p id="result">This text will be replaced </p>
+
+<script> 
+
+function resolveForm (){
+    console.log("Getting form values")
+    age = document.getElementById("form1_age").value
+    nick = document.getElementById("form1_nick").value
+    confirmed = confirm("Are these the values? "+age+" and "+nick)
+    
+    out = document.getElementById("result")
+    if(confirmed){
+        out.innerHTML = "Values were confirmed"
+    } else {
+        out.innerHTML = "Values were not confirmed"
+    }
+}
+</script>
+
+<form id="discountForm">
+    <label for="price">Enter price per:</label>
+    <input type="number" id="price" value="10"><br>
+
+    <label for="count">Enter the number of items:</label>
+    <input type="number" id="count" value="9"><br>
+
+    <label for="reductions">Enter the discount percent:</label>
+    <input type="number" id="reductions" value="5"><br>
+
+    <button type="button" onclick="discount()">Show total</button>
+</form>
+
+<div id="output"></div>
+
+<form id="operationForm">
+    <label for="sum">sum</label>
+    <input type="radio" name="operation" value="sum" onclick="chooseOp()">
+
+    <label for="multiply">multiply</label>
+    <input type="radio" name="operation" value="multiply" onclick="chooseOp()">
+
+    <label for="exponent">exponent</label>
+    <input type="radio" name="operation" value="exponent" onclick="chooseOp()">
+</form>
+
+<div id="operationOutput"></div>
+
+<script>
+    function discount() {
+        var price = document.getElementById("price").value;
+        var count = document.getElementById("count").value;
+        var discountPercent = document.getElementById("reductions").value;
+        var toShow = "Totals are: ";
+
+        for (var i = 0; i < 5; i++) {
+            var discountRate = parseInt(discountPercent) + i;
+            var total = (price * count) * (1 - discountRate / 100);
+            toShow += discountRate + "% is $" + total.toFixed(2) + "; ";
+        }
+
+        document.getElementById("output").innerHTML = toShow;
+    }
+
+    function chooseOp() {
+        var price = parseInt(document.getElementById("price").value);
+        var discount = parseInt(document.getElementById("reductions").value);
+        var selectedOperation = document.querySelector('input[name="operation"]:checked').value;
+
+        var result;
+
+        switch (selectedOperation) {
+            case "sum":
+                result = price + discount;
+                document.getElementById("operationOutput").innerHTML = "Sum of " + price + " and " + discount + " is " + result;
+                break;
+            case "multiply":
+                result = price * discount;
+                document.getElementById("operationOutput").innerHTML = "Product of " + price + " and " + discount + " is " + result;
+                break;
+            case "exponent":
+                result = Math.pow(price, discount);
+                document.getElementById("operationOutput").innerHTML = "Exponent of " + price + " raised to the power of " + discount + " is " + result;
+                break;
+            default:
+                break;
+        }
+    }
+</script>
+
+</body>
+</html> 
