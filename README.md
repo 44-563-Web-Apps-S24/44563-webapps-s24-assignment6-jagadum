@@ -6,6 +6,6 @@ Hosted at : https://44-563-web-apps-s24.github.io/44563-webapps-s24-assignment6-
 -
 Hosted at : https://44-563-web-apps-s24.github.io/44563-webapps-s24-assignment6-jagadum/discount.html
 -
-Hosted at : https://44-563-web-apps-s24.github.io/44563-webapps-s24-assignment6-jagadum/parcking.html
+Hosted at : https://44-563-web-apps-s24.github.io/44563-webapps-s24-assignment6-jagadum/packing.html
 -
 
