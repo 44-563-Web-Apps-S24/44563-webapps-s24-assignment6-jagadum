@@ -1,7 +1,33 @@
 <!DOCTYPE html>
 <html>
+    <head>
+        <title>Packs for a Trip</title>
+    </head>
  
 <body>
+    <h1>Nuthan Jarugumalli packs for a trip</h1>
+    <form id="packingForm">
+        <label>
+            <input type="checkbox" id="Pack light" value="True">Pack light
+        </label>
+        <br>
+        <label>
+            <input type="checkbox" id="carry on" value="True">Carry on
+        </label>
+        <br>
+        <label>
+            <input type="checkbox" id="Tablet" value="False">Tablet
+        </label>
+    </form>
+    <button onclick="selectPack()">Select for packing</button>
+    <div id="packresult"></div>
+    <form id="updatePackForm">
+        <label for="travelMonth">Enter travel month:</label>
+        <input type="text" id="travelMonth" value="May"><br>
+        <label for="price">Enter price:</label>
+        <input type="text" id="price"><br>
+        <button onclick="updatePack()">Update the pack</button>
+    </form>
 
 <h2>Getting input</h2>
 
