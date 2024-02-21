@@ -15,7 +15,7 @@
 <h2>Animal Game by Nuthan Jarugumalli</h2>
 
 <main>
-    <form>
+    <form id = "animalForm">
         <label for="hiddenAnimal">The hidden animal type</label>
         <input type="password" id="hiddenAnimal" value="Chicken">
         <br>
@@ -44,12 +44,12 @@
         }
 
         document.getElementById('result').innerHTML = `Correct: ${correct}, Wrong: ${wrong}`;
-    }
-    if (wrong > correct) {
-            document.getElementById('imageContainer').setAttribute('onclick', 'tooManyWrongGuesses()');
+        // Bonus
+        if (wrong > correct) {
+            document.getElementById('animalForm').onclick = function() {
+                alert('Sorry, too many wrong guesses.');
+            };
         }
-    function tooManyWrongGuesses() {
-        alert('Sorry, too many wrong guesses.');
     }
 </script>
 <div id="imageContainer" onclick="selectImage()">
